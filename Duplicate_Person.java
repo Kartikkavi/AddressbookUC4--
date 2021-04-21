@@ -1,6 +1,11 @@
+package addressbook;
 import java.util.*;
+public class Duplicate_Person {
 
-public class Address {
+
+
+
+
 
 
 //class Contacts{
@@ -12,7 +17,7 @@ public class Address {
    Long zipCode, phoneNum;
     
     // to return data to object by user inputs  
-    public void setContactsDetails() {      
+    public void setContactsDetails(){      
         System.out.println("Enter your First name: ");  
         this.fName = userInputs.nextLine();
         System.out.println("Enter your Last name: ");
@@ -33,7 +38,7 @@ public class Address {
 
     //to read data from contacts
     public String showContactsDetails() {
-        return ("------------------------\nFirst Name: " + fName + "\nLast Name: " + lName + "\nAddress: " + address + "\nCity: " + city + "\nState: " + state + "\nPin Code: " + zipCode + "\nPhone Number: " + phoneNum + "\nEmail ID: " + email + "\n-------------------------");
+        return ("---\nFirst Name: " + fName + "\nLast Name: " + lName + "\nAddress: " + address + "\nCity: " + city + "\nState: " + state + "\nPin Code: " + zipCode + "\nPhone Number: " + phoneNum + "\nEmail ID: " + email + "\n---");
     }
     
     // get complete details of person
@@ -44,19 +49,19 @@ public class Address {
 
 
 
-// public class Address {
+// public class Address_Book_System {
 
    public static void main(String[] args) {
         
         System.out.println("Welcome to Address Book");
-
-        List<Address> persons = new ArrayList<>();
+	System.out.println("Add multiple persons");
+        List<Address_Book_System> persons = new ArrayList<>();
 
         Scanner uc = new Scanner(System.in);
         System.out.println("If you want to add address enter '0' or \nfor editing existing address enter '1' and \nfor deleting enter '2': ");
         int userChoice = uc.nextInt();
 
-        if(userChoice == 0 ) {
+        if(userChoice == 0 ){
             //adding contact details to address book
             System.out.println("Adding a new Address");
 
@@ -65,7 +70,7 @@ public class Address {
             int noOfPersons = n.nextInt();
 
             for(int i = 0; i < noOfPersons; i++){
-                Address contact = new Address();
+                Address_Book_System contact = new Address_Book_System();
                 contact.setContactsDetails();
                 persons.add(contact);
                 System.out.println(contact.showContactsDetails());  
@@ -87,28 +92,28 @@ public class Address {
                 Scanner input = new Scanner(System.in);
                 String editContact = input.next();
 
-                for(Address i : persons) {
+                for(Address_Book_System i : persons) {
             
                     if(i.getFirstName().equals(editContact)) {
                 
                         System.out.println("Change the First Name: ");
-                        String editfName = input.nextLine();
+                        String editfName = input.next();
                         i.fName = editfName;
                     
                         System.out.println("Change the Last Name: ");
-                        String editlName = input.nextLine();
+                        String editlName = input.next();
                         i.lName = editlName;
 
                         System.out.println("Change the Address: ");
-                        String editAddress = input.nextLine();
+                        String editAddress = input.next();
                         i.address = editAddress;
 
                         System.out.println("Change the City: ");
-                        String editCity = input.nextLine();
+                        String editCity = input.next();
                         i.city = editCity;
 
                         System.out.println("Change the State: ");
-                        String editState = input.nextLine();
+                        String editState = input.next();
                         i.state = editState;
 
                         System.out.println("Change the Pin Code: ");
@@ -120,14 +125,13 @@ public class Address {
                         i.phoneNum = editPhoneNum;
         
                         System.out.println("Change the Email ID: ");
-                        String editEmail = input.nextLine();
+                        String editEmail = input.next();
                         i.email = editEmail;
                     }
                 System.out.println(persons);
-                }      
-              
-            }
-            
+		}
+	}
+
                 System.out.println("Deleting a contact");
 
                 System.out.println(persons);
@@ -135,18 +139,16 @@ public class Address {
                 Scanner input = new Scanner(System.in);
                 String deleteContact = input.next();
 
-                for(Address i : persons) {
+                for( Address_Book_System i : persons) {
 
                         if(i.getFirstName().equals(deleteContact)){
                             persons.remove(i);
                         }
                 }
                 System.out.println(persons);
-                
+
             }else{
                 System.out.println("Invalid Option");
             }
         }
-    
-	}
-
+    }
